@@ -5,11 +5,19 @@ const webpack = require('webpack')
 const webpackConfig = require('../config/webpack.config')
 const project = require('../config/project.config')
 const compress = require('compression')
+// Defines Route
+const loginRoute = require('./routes/loginRoute')
 
 const app = express()
 
 // Apply gzip compression
 app.use(compress())
+
+// app.get('/api/login', function (req, res) {
+//   console.log(app.mountpath) // /admin
+//   res.status(200).json({ data: 'Hello World' })
+// })
+app.use('/api/login', loginRoute)
 
 // ------------------------------------
 // Apply Webpack HMR Middleware

@@ -1,5 +1,7 @@
 import React from 'react'
 
+// State - Less
+
 // export const Login = (props) => (
 //   <div>
 //     <form>
@@ -20,6 +22,9 @@ import React from 'react'
 // }
 //
 // export default Counter
+
+
+// State - full
 
 class Login extends React.Component {
   constructor () {
@@ -47,7 +52,7 @@ class Login extends React.Component {
     const { message } = this.props
     return (
       <div>
-        {message ? <div>{message}</div> : null}
+        {message ? <div className="col-lg-6 ">{message}</div> : null}
         <form onSubmit={this.onSubmit}>
           <label>Username</label>
           <input type='text' name='username' value={username} onChange={this.onChangeUsername} />

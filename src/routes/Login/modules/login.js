@@ -7,12 +7,22 @@ const LOGIN_REQUEST_ERROR = 'LOGIN_REQUEST_ERROR'
 // ------------------------------------
 // Actions
 // ------------------------------------
+
 export function login ({ username, password }) {
   return (dispatch, getState) => {
     dispatch({
       type    : LOGIN_REQUEST,
       payload : { username, password, loading: true }
     })
+
+    fetch('/api/login').then((rs) => {
+      'use strict'
+      return rs.json();
+    }).then((rs) => {
+      'use strict'
+      console.log(rs);
+    })
+
      // todo: call api login
     return new Promise((resolve, reject) => {
       resolve() // test success
